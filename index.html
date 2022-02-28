@@ -17,9 +17,10 @@
         <p id="dataCrypto" style="font-size: 150;margin: 0;"></p>
         <p style="font-size: 50; margin-top: 0;">ETHUSDT</p>
         <p id="dataUSD" style="font-size: 150;margin: 0"></p>
-        <p style="font-size: 50; margin-top: 0;">USD TO RUB</p>
-        <p id="dataSalary" style="font-size: 150;margin: 0"></p>
-        <p style="font-size: 50; margin-top: 0;">SALARY/DAY</p>
+        <p style="font-size: 50; margin-top: 0; color: #fff">USD TO RUB</p>
+        <p id="dataSalary" style="font-size: 150;margin: 0; color: #fff;"></p>
+        <p style="font-size: 50; margin: 0;">SALARY/DAY</p>
+        <p id="dataSalaryTax" style="font-size: 100;margin: 0; color: rgba(255, 255, 255, 0.281);"></p>
         <script>
             let socketUSD = new WebSocket("wss://wss.zenrus.ru/");
             let socketCrypto = new WebSocket("wss://fstream.binance.com/stream?streams=ethusdt@markPrice");
@@ -44,6 +45,7 @@
                 var usdData = eventData.substring(0,semicolonNumber)
                 document.getElementById('dataUSD').innerText = Number(usdData).toFixed(2).toString()
                 document.getElementById('dataSalary').innerText = Number(usdData * 115).toFixed(2).toString()
+                document.getElementById('dataSalaryTax').innerText = Number(usdData * 108.1).toFixed(2).toString()
             };
         </script>
     </body>
